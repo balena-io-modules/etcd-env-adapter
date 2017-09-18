@@ -1,0 +1,26 @@
+FROM library/node:8
+
+ENV ETCD_VERSION v3.2.7
+
+RUN curl -L \
+  https://github.com/coreos/etcd/releases/download/${ETCD_VERSION}/etcd-${ETCD_VERSION}-linux-amd64.tar.gz \
+  | tar -xvz \
+    --strip-components=1 \
+      -C /usr/local/bin \
+        etcd-${ETCD_VERSION}-linux-amd64/etcd \
+        etcd-${ETCD_VERSION}-linux-amd64/etcdctl
+
+RUN ls -lah /usr/local/bin
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["npm", "start"]
+
+WORKDIR /usr/local/src
+COPY package.json ./.
+RUN npm install
+
+COPY entrypoint.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+COPY index.js .
+

@@ -1,0 +1,31 @@
+{
+  "name": "etcd-env-adapter",
+  "version": "1.0.0",
+  "description": "Convert etcd values to env vars",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/brownjohnf/etcd-env-adapter.git"
+  },
+  "keywords": [
+    "etcd",
+    "env"
+  ],
+  "author": "Jack Brown",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/brownjohnf/etcd-env-adapter/issues"
+  },
+  "homepage": "https://github.com/brownjohnf/etcd-env-adapter#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "express": "^4.15.4",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
