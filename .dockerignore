@@ -1,0 +1,6 @@
+*.tmp
+*.swo
+*.swp
+node_modules
+.git
+
